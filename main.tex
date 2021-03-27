@@ -1,0 +1,72 @@
+% ------------------------------------------------------------------------------
+
+% Metropolis beamer theme for Cornell
+
+% ------------------------------------------------------------------------------
+
+%beamer presentation with 16:10 aspect ratio
+\documentclass[12pt,aspectratio=1610]{beamer}
+
+%biblatex stuff
+\usetheme[progressbar=frametitle,numbering=fraction]{metropolis}
+\usepackage[style=numeric,sorting=none]{biblatex}
+\addbibresource{main.bib}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+%dependencies
+\usepackage{appendixnumberbeamer}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{forest}
+\usepgfplotslibrary{dateplot}
+\usepackage{xspace}
+\usepackage{etoolbox}
+\usepackage{bookmark}
+\usepackage{hyperref}
+\hypersetup{bookmarksdepth=3}
+
+%colors for presentation
+\definecolor{Carnelian}{RGB}{179, 27, 27}
+\definecolor{Orange}{RGB}{248, 152, 29}
+\definecolor{DarkGrey}{RGB}{34, 34, 34}
+
+%set theme parameters
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{frametitle}{bg=Carnelian}
+
+%set numbering to be for distinct frames
+\makeatletter
+\apptocmd{\beamer@@frametitle}{%
+    \only<1>{\bookmark[page=\the\c@page,level=3]{#1 \expandafter\ifnum\insertcontinuationcount>0\relax\insertcontinuationcount\fi}}}%
+\makeatother
+
+% ------------------------------------------------------------------------------
+
+%title slide information
+\title{My awesome title}
+\date{April 9, 2021}
+\author{Ezra Cornell}
+\titlegraphic{\begin{tabular}{c}
+                \hspace*{4.5in}\includegraphics[height=.6in]{images/logo/bold_cornell_seal_cmyk_red.eps} \\
+              \end{tabular}}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+
+\makeatletter
+\pdfbookmark[0]{\@title}{title}
+\makeatother
+
+\maketitle
+
+% ------------------------------------------------------------------------------
+
+\begin{frame}{intro}
+\end{frame}
+
+\end{document}
